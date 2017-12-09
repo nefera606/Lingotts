@@ -31,14 +31,16 @@ contract ERC223Token is ERC223Interface {
      */
     function transfer(address _to, uint _value, bytes _data) {
         // Standard function transfer similar to ERC20 transfer with no _data .
-        // Added due to backwards compatibility reasons .
+        // Added due to backwards compatibility reasons.
+        if (_value > balances[msg.sender]){
+          revert();
+        }
         uint codeLength;
 
         assembly {
             // Retrieve the size of the code on target address, this needs assembly .
             codeLength := extcodesize(_to)
         }
-
         balances[msg.sender] = balances[msg.sender].sub(_value);
         balances[_to] = balances[_to].add(_value);
         if(codeLength>0) {
@@ -58,6 +60,9 @@ contract ERC223Token is ERC223Interface {
      * @param _value Amount of tokens that will be transferred.
      */
     function transfer(address _to, uint _value) {
+      if (_value > balances[msg.sender]){
+        revert();
+      }
         uint codeLength;
         bytes memory empty;
 
