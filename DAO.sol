@@ -1,7 +1,7 @@
 pragma solidity ^0.4.11;
 
 import './TokenCreation.sol';
-
+import './AccountIdFactory.sol';
 
 /**
  * @title Reference implementation of the DAO Liquid Democracy.
