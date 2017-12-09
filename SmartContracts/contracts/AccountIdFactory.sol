@@ -8,6 +8,7 @@ contract AccountIdFactory {
 
   struct Account {
     string username;
+    address ownerAddress;
     address id;
     bool deleted;
   }
@@ -21,8 +22,7 @@ contract AccountIdFactory {
 
   event NewAccount(string username, address id);
 
-  function AccountIdFactory(string firstUser, uint tokenAmmount) {
-    create(firstUser);
+  function AccountIdFactory(uint tokenAmmount) {
     tokenAddress = new ERC223Token(tokenAmmount);
   }
 
@@ -45,9 +45,9 @@ contract AccountIdFactory {
   }
 
   // Logical deletion
-  /*function remove(string username)  { ADD MODIFIER to allow only if sender is the owner of the contract beign deleted
+  function remove(string username)  { //ADD MODIFIER to allow only if sender is the owner of the contract beign deleted
     accountList[accounts[sha3(username)]].deleted = true;
-  }*/
+  }
 
   // Returns an accountId if exists and has not been deleted. 0x0... otherwise
   function getAccountId(string username) constant returns(address id) {
@@ -66,6 +66,7 @@ contract AccountIdFactory {
   function register(string _username, address accountAddress) internal {
     accountList.push(Account({
       username: _username,
+      ownerAddress: msg.sender,
       id: accountAddress,
       deleted: false
     }));
@@ -77,4 +78,24 @@ contract AccountIdFactory {
   function getAccount(string username) internal constant returns(Account) {
     return accountList[accounts[sha3(username)]];
   }
+
+  function isUser(string userName) constant returns(uint) {
+    if(existsAccount[sha3(userName)] && !getAccount(userName).deleted){
+      if(accountList[accounts[sha3(userName)]].ownerAddress != msg.sender)
+        return 0;
+      else
+        return 1;
+    }
+    return 2;
+  }
+
+  function getUserExternal(string _userName) constant returns(string, address, bool) {
+    if(existsAccount[sha3(_userName)] && !getAccount(_userName).deleted){
+      return (accountList[accounts[sha3(_userName)]].username, accountList[accounts[sha3(_userName)]].id,
+            accountList[accounts[sha3(_userName)]].deleted);
+    }else{
+      return ("User not found", 0x0, false);
+    }
+  }
+
 }

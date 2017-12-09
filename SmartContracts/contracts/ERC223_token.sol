@@ -29,7 +29,7 @@ contract ERC223Token is ERC223Interface {
     function makeProfitsAvaiable() { //MAKE ONLY CREATOR OR IN TIME
       profitsAvaiable = true;
       profits = this.balance - totalSupply;
-      totalSupply = totalSupply - profits;
+      totalSupply = totalSupply + profits;
       ProfitsClaimable('The profits are claimable');
     }
 
@@ -52,12 +52,12 @@ contract ERC223Token is ERC223Interface {
      * @param _value    ammount of wei to send.
      */
     function getTokensFromWei(uint _value) payable{
-      if (_value > totalSupply){
+      if (_value > avaiableSupply){
         revert();
       }
       this.transfer(_value);
       balances[msg.sender].add(_value);
-      totalSupply.sub(_value);
+      avaiableSupply.sub(_value);
     }
     /**
      * @dev Receives tokens and adds the correct ammount of wei to the sender's address.
@@ -72,7 +72,7 @@ contract ERC223Token is ERC223Interface {
       }
       balances[msg.sender].sub(_value);
       msg.sender.transfer(_value);
-      totalSupply.add(_value);
+      avaiableSupply.add(_value);
     }
 
     /**
