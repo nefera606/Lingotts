@@ -12,10 +12,36 @@ contract ERC223Token is ERC223Interface {
 
     mapping(address => uint) balances; // List of user balances.
     uint public totalSupply;
+    uint public avaiableSupply;
+    uint public profits;
+    bool public profitsAvaiable;
+
+    event WeiSent(address sender, uint amount);
+    event ProfitsClaimable(string message);
 
     function ERC223Token(uint _totalSupply) {
       totalSupply = _totalSupply;
+      avaiableSupply = _totalSupply;
+      profitsAvaiable = false;
       //balances[msg.sender] = balances[msg.sender].add(totalSupply);
+    }
+
+    function makeProfitsAvaiable() { //MAKE ONLY CREATOR OR IN TIME
+      profitsAvaiable = true;
+      profits = this.balance - totalSupply;
+      totalSupply = totalSupply - profits;
+      ProfitsClaimable('The profits are claimable');
+    }
+
+    function claimProfits(){
+      if (profitsAvaiable){
+        uint percentage = (balances[msg.sender]*100)/(totalSupply+profits);
+        balances[msg.sender].add(percentage.mul(profits));
+      }
+    }
+
+    function() payable {
+      WeiSent(msg.sender, msg.value);
     }
 
     /**
@@ -29,7 +55,7 @@ contract ERC223Token is ERC223Interface {
       if (_value > totalSupply){
         revert();
       }
-      msg.sender.transfer(_value);
+      this.transfer(_value);
       balances[msg.sender].add(_value);
       totalSupply.sub(_value);
     }
@@ -45,8 +71,8 @@ contract ERC223Token is ERC223Interface {
         revert();
       }
       balances[msg.sender].sub(_value);
-      this.transfer(_value);
-      totalSupply.add(_value)
+      msg.sender.transfer(_value);
+      totalSupply.add(_value);
     }
 
     /**
@@ -111,6 +137,9 @@ contract ERC223Token is ERC223Interface {
         Transfer(msg.sender, _to, _value, empty);
     }
 
+    function emulateProfits(uint _value) payable{
+      this.transfer(_value);
+    }
 
     /**
      * @dev Returns balance of the `_owner`.
