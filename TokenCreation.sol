@@ -5,7 +5,7 @@
  * Token Creation parameters
 */
 
-import "./Token.sol";
+import "./token-ERC20.sol";
 
 pragma solidity ^0.4.4;
 
