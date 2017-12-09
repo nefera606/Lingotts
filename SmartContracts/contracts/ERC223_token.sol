@@ -15,7 +15,38 @@ contract ERC223Token is ERC223Interface {
 
     function ERC223Token(uint _totalSupply) {
       totalSupply = _totalSupply;
-      balances[msg.sender] = balances[msg.sender].add(totalSupply);
+      //balances[msg.sender] = balances[msg.sender].add(totalSupply);
+    }
+
+    /**
+     * @dev Receives wei and adds the correct ammount of tokens to the sender's address.
+     *      Deducts the sent tokens from the total supply of tokens
+     *      Right now one wei is one token
+     *
+     * @param _value    ammount of wei to send.
+     */
+    function getTokensFromWei(uint _value) payable{
+      if (_value > totalSupply){
+        revert();
+      }
+      msg.sender.transfer(_value);
+      balances[msg.sender].add(_value);
+      totalSupply.sub(_value);
+    }
+    /**
+     * @dev Receives tokens and adds the correct ammount of wei to the sender's address.
+     *      adds the sent tokens to the total supply of tokens
+     *      Right now one wei is one token
+     *
+     * @param _value    ammount of wei to send.
+     */
+    function getWeiFromToken(uint _value) payable{
+      if (_value > balances[msg.sender]){
+        revert();
+      }
+      balances[msg.sender].sub(_value);
+      this.transfer(_value);
+      totalSupply.add(_value)
     }
 
     /**
