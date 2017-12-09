@@ -1,6 +1,6 @@
 
 
-import ".SmartContracts/contracts/RC223_token.sol";
+import ".develop/SmartContracts/contracts/RC223_token.sol";
 
 pragma solidity ^0.4.4;
 
