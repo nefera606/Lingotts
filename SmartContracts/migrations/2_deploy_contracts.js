@@ -1,5 +1,5 @@
-var VTNUserManager = artifacts.require("./VTNUserManager.sol");
+var AccountIdFactory = artifacts.require("./AccountIdFactory.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(VTNUserManager, web3.eth.accounts[0]);
+  deployer.deploy(AccountIdFactory, web3.eth.accounts[0]);
 };
