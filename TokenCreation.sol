@@ -1,6 +1,11 @@
 
+/*
+ * Token Creation contract, used by the DAO to create its tokens and initialize
+ * its ether. Feel free to modify the divisor method to implement different
+ * Token Creation parameters
+*/
 
-import ".develop/SmartContracts/contracts/RC223_token.sol";
+import "./Token.sol";
 
 pragma solidity ^0.4.4;
 
