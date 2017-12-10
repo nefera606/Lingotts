@@ -1,14 +1,8 @@
 pragma solidity ^0.4.11;
 
-import './TokenCreation.sol';
-import './AccountIdFactory.sol';
-
 /**
  * @title Reference implementation of the DAO Liquid Democracy.
  */
- 
- 
- pragma solidity ^0.4.16;
 
 contract token {
     mapping (address => uint256) public balanceOf;
@@ -145,5 +139,3 @@ contract LiquidDemocracy {
         return currentWinner;
     }
 }
-
- 

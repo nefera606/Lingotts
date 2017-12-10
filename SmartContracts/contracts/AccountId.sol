@@ -1,4 +1,4 @@
-pragma solidity ^0.4.8;
+pragma solidity ^0.4.11;
 
 //Here DIP and KYC information is stored
 contract AccountId  {

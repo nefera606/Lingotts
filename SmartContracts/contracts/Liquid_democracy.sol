@@ -1,4 +1,4 @@
-pragma solidity ^0.4.16;
+pragma solidity ^0.4.11;
 
 contract token {
     mapping (address => uint256) public voteWeight;
