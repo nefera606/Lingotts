@@ -13,6 +13,13 @@ contract AccountIdFactory {
     bool deleted;
   }
 
+  address public owner;
+  modifier onlyOwner() {
+    if(msg.sender != owner)
+      revert();
+    _;
+  }
+
   address public tokenAddress;
 
   Account[] public accountList;
@@ -22,13 +29,14 @@ contract AccountIdFactory {
 
   event NewAccount(string username, address id);
 
-  function AccountIdFactory(uint tokenAmmount) {
+  function AccountIdFactory (uint tokenAmmount) {
     tokenAddress = new Lingotts(tokenAmmount);
+    owner = msg.sender;
   }
 
   // Creates and registers a new ID if it's not already created
   function create(string username)
-    returns(address accountAddress)
+  returns(address accountAddress)
   {
 
     if(!existsAccount[sha3(username)]) {
@@ -45,7 +53,7 @@ contract AccountIdFactory {
   }
 
   // Logical deletion
-  function remove(string username)  { //ADD MODIFIER to allow only if sender is the owner of the contract beign deleted
+  function remove(string username) onlyOwner { //ADD MODIFIER to allow only if sender is the owner of the contract beign deleted
     accountList[accounts[sha3(username)]].deleted = true;
   }
 

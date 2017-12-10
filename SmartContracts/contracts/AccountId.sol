@@ -14,8 +14,9 @@ contract AccountId  {
     _;
   }
 
+  address public master;
   modifier onlyIfOwner() {
-    if(msg.sender != userAddress)
+    if(msg.sender != userAddress || msg.sender != master)
       revert();
 
     _;
@@ -23,6 +24,7 @@ contract AccountId  {
 
   function AccountId(string _userName, address _userAddress) {
     userName = _userName;
+    master = msg.sender;
     userAddress = _userAddress;
     active = true;
   }
