@@ -1,7 +1,7 @@
 pragma solidity ^0.4.11;
 
 import "./AccountId.sol";
-import "./ERC223_token.sol";
+import "./Lingotts_token.sol";
 
 // Per country
 contract AccountIdFactory {
@@ -23,7 +23,7 @@ contract AccountIdFactory {
   event NewAccount(string username, address id);
 
   function AccountIdFactory(uint tokenAmmount) {
-    tokenAddress = new ERC223Token(tokenAmmount);
+    tokenAddress = new Lingotts(tokenAmmount);
   }
 
   // Creates and registers a new ID if it's not already created
