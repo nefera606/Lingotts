@@ -1,0 +1,162 @@
+{
+  "contract_name": "MultiOwned",
+  "abi": [
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "who",
+          "type": "address"
+        }
+      ],
+      "name": "addMaster",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "numMasters",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "numUsers",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "wallet",
+          "type": "address"
+        }
+      ],
+      "name": "addUser",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "wallet",
+          "type": "address"
+        }
+      ],
+      "name": "removeUser",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "master",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "users",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "who",
+          "type": "address"
+        }
+      ],
+      "name": "removeMaster",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "who",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "by",
+          "type": "address"
+        }
+      ],
+      "name": "NewUser",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "who",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "by",
+          "type": "address"
+        }
+      ],
+      "name": "NewMaster",
+      "type": "event"
+    }
+  ],
+  "unlinked_binary": "0x6060604052341561000f57600080fd5b5b600160a060020a0333166000908152602081905260409020805460ff191660011790555b5b610417806100446000396000f3006060604052361561008b5763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631097d54a811461009057806311013f4e146100b157806319a50f49146100d6578063421b2d8b146100fb578063985751881461011c5780639ed153c01461013d578063a87430ba14610170578063e2a2f0a3146101a3575b600080fd5b341561009b57600080fd5b6100af600160a060020a03600435166101c4565b005b34156100bc57600080fd5b6100c4610265565b60405190815260200160405180910390f35b34156100e157600080fd5b6100c461026b565b60405190815260200160405180910390f35b341561010657600080fd5b6100af600160a060020a0360043516610271565b005b341561012757600080fd5b6100af600160a060020a0360043516610315565b005b341561014857600080fd5b61015c600160a060020a036004351661036b565b604051901515815260200160405180910390f35b341561017b57600080fd5b61015c600160a060020a0360043516610380565b604051901515815260200160405180910390f35b34156101ae57600080fd5b6100af600160a060020a0360043516610395565b005b600160a060020a03331660009081526020819052604090205460ff1615156101eb57600080fd5b600160a060020a03811660009081526020819052604090819020805460ff191660019081179091558054810190557f86252e3757e33841641a80f45eb868576e3205beeb90ea3a70114de9a7d313b0908290339051600160a060020a039283168152911660208201526040908101905180910390a15b5b50565b60015481565b60035481565b600160a060020a03331660009081526020819052604090205460ff16151561029857600080fd5b600160a060020a03811660009081526002602052604090819020805460ff191660019081179091556003805490910190557fff3eabe1067b08ba8af3e8d3191eebeae9b35de7a7aeee40f2ad1ceb6a887607908290339051600160a060020a039283168152911660208201526040908101905180910390a15b5b50565b600160a060020a03331660009081526020819052604090205460ff16151561033c57600080fd5b600160a060020a0381166000908152600260205260409020805460ff19169055600380546000190190555b5b50565b60006020819052908152604090205460ff1681565b60026020526000908152604090205460ff1681565b600160a060020a03331660009081526020819052604090205460ff1615156103bc57600080fd5b600160a060020a0381166000908152602081905260409020805460ff19169055600180546000190190555b5b505600a165627a7a7230582020fb6bd7121a34de16aedd3b80310b2382c36c09faa50da0c04373135c0cb9c70029",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1512904409691
+}
