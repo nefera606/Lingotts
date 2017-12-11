@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<title>Proposal voting</title>
+	 <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      
+	<link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css">
+	
+	<!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+<link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/footer.css">
+
+</head>
+<body>
+<header>
+    <nav style="background:rgba(0, 0, 0, 0.39);">
+    <div class="nav-wrapper">
+      <a href="balance.html" class="brand-logo">Lingotts</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="balance.html">Account</a></li>
+        <li><a href="landing.html">Log out</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<main>
+  <div class="container">
+    <h2>Process vote of proposal</h2>
+<form action="#" >
+  <h7>Do you want to support this proposal?</h7>
+    <p >
+      <input class="with-gap" name="group1" type="radio" id="yes" />
+      <label style="color: white" for="yes">Yes</label>
+    </p>
+    <p>
+      <input class="with-gap" name="group1" type="radio" id="no" />
+      <label style="color: white" for="no">No</label>
+    </p>
+   <div class="row">
+        <div class="col s12">
+          Lingotts amount:
+          <div class="input-field inline">
+            <input id="cantidad" type="number" class="validate" min="1">
+            <label for="cantidad" data-error="wrong" data-success="right"></label>
+          </div>
+        </div>
+      </div>
+   <button class="btn waves-effect waves-light orange darken-3" type="submit" name="action">
+    <a href="voteMsg.html" style="color: white">Send my vote</a>
+
+    <i class="material-icons right">send</i>
+  </button>
+  </form>
+ </div>
+</main>
+<!--Footer-->
+<footer class="page-footer" style="background:rgba(0, 0, 0, 0.39);"">
+     <div class="footer-copyright">
+        <div class="container center-align">Lingotts | Blockchainthon 2017 | Madrid</div>
+     </div>
+   </footer>
+<!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script> 
+   <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        
+	<!-- <script src="/bower_components/jquery/dist/jquery.js"></script>
+	<script src="/bower_components/angular/angular.js"></script>
+	<script src="/bower_components/angular-route/angular-route.js"></script>
+	<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="/bower_components/materialize/dist/js/materialize.min.js"></script>
+	<script src="/app.js"></script>
+	<script src="/controllers/users.js"></script>-->
+	<script src="/controllers/votes.js"></script>
+</body>
+</html>
