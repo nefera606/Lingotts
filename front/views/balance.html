@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+	<title>Account Details</title>
+  
+	 <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      
+	<link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css">
+	
+	<!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+<link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/footer.css">
+
+</head>
+<body>
+ <div class="background">
+            <div class="layer"></div>
+        </div>
+<!--Header-->
+<header>
+    <nav style="background:rgba(0, 0, 0, 0.39);">
+    <div class="nav-wrapper">
+      <a href="balance.html" class="brand-logo">Lingotts</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="balance.html">Account</a></li>
+        <li><a href="landing.html">Log out</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<main>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div  class="row container">
+    <h4>Hello Alice! here is your balance</h4 >
+
+    <div class="col s8">    
+
+<ul class="list-group">
+  <li class="list-group-item"><p>Wallet: 0xB61fb596B0cC9FA829d678eb0B8a0e058c3f1b91</p></li>
+  <li class="list-group-item"><p>Number of lingotts: 32</p></li>
+  <li class="list-group-item"><p>Number of ether: 32</p></li>
+  <li class="list-group-item"><p>Profits: 0,1</p></li>
+
+</ul>
+    </div>
+
+<div class="col s3 offset-s1" style="height:220px; border-left: 3px solid rgba(130, 130, 130, .5);">
+  <br>
+ 
+<a href="transfer.html" class="btn waves-effect waves-light orange darken-3 anchoBoton" style="color: white;">Transfers</a>
+ 
+
+ <a href="proposals.html" class="btn waves-effect waves-light orange darken-3 anchoBoton" style="color: white;">Proposals</a>
+ 
+
+
+<a href="marketplace.html" class="btn waves-effect waves-light orange darken-3 anchoBoton" style="color: white">Marketplace</a>
+<a  class="btn waves-effect waves-light orange darken-3 anchoBoton" style="color: white">Reclaim</a>
+
+</div>
+  </div>
+</main>
+<!--Footer-->
+<footer class="page-footer" style="background:rgba(0, 0, 0, 0.39);"">
+     <div class="footer-copyright">
+        <div class="container center-align">Lingotts | Blockchainthon 2017 | Madrid</div>
+     </div>
+   </footer>
+<!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script> 
+   <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+ <!--             <script type="text/javascript">
+       function redireccionarReclaim() {
+  window.location = "reclaim.html";
+}
+setTimeout("redireccionarReclaim()", 3000);
+     </script> -->
+	<!-- <script src="/bower_components/jquery/dist/jquery.js"></script>
+	<script src="/bower_components/angular/angular.js"></script>
+	<script src="/bower_components/angular-route/angular-route.js"></script>
+	<script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="/bower_components/materialize/dist/js/materialize.min.js"></script>
+	<script src="/app.js"></script>
+	<script src="/controllers/users.js"></script>-->
+	<script src="/controllers/votes.js"></script>
+</body>
+</html>
